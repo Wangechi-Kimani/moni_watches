@@ -1,6 +1,5 @@
 import { useState } from "react";
-import classes from "./Checkout.module.css";
-import Button from "../ui/Button";
+import classes from "./CheckOut.module.css";
 
 import OrderList from "../products/OrderList";
 
