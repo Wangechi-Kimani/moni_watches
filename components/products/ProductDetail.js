@@ -8,23 +8,23 @@ function ProductDetail(props) {
   const [disabled, setDisabled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   
-  async function addToCartHandler() { 
-    setIsLoading(true);
-    setDisabled(true);
+  // async function addToCartHandler() { 
+  //   setIsLoading(true);
+  //   setDisabled(true);
     
-    const product = {
-      id:props.id,
-      price:props.price,
-      title:props.title,
-      image:props.image
-    }
-    addItem(product);
+  //   const product = {
+  //     id:props.id,
+  //     price:props.price,
+  //     title:props.title,
+  //     image:props.image
+  //   }
+  //   addItem(product);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setDisabled(false);
-    }, 2000);
-  }
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //     setDisabled(false);
+  //   }, 2000);
+  // }
 
   function addToCheckOutHandler() {
     router.push('/checkout');

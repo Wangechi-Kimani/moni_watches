@@ -12,7 +12,6 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>Moni Inc</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link ref='icon' href='/images/logo/logo7.png'/>
       </Head>
       <Provider session={pageProps.session}>
         <CartProvider>

@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { MongoClient } from "mongodb";
 
 import Image from "next/image";
 
@@ -6,7 +7,6 @@ import Button from "../components/ui/Button";
 import classes from "../styles/Home.module.css";
 
 export default function Home(props) {
- 
   return (
     <Fragment>
       <section className={classes.jumbotron}>
@@ -171,6 +171,33 @@ export default function Home(props) {
       </section>
     </Fragment>
   );
+}
+
+
+export async function getStaticProps() {
+  const MONGODB_URI =
+    "mongodb+srv://wangechi_k:wangechi_k@onlinestore.bbwik.mongodb.net/moni_inc?retryWrites=true&w=majority";
+
+  const client = await MongoClient.connect(MONGODB_URI, {
+    useUnifiedTopology: true});
+  const db = client.db();
+
+  const meetupCollection = db.collection("watches");
+
+  const meetups = await meetupCollection.find().toArray();
+  client.close();
+
+  return {
+    props: {
+      meetups: meetups.map((meetup) => ({
+        title: meetup.title,
+        price: meetup.price,
+        image: meetup.image,
+        id: meetup._id.toString()
+      })),
+    },
+    revalidate: 60,
+  };
 }
 
 

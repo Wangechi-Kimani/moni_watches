@@ -10,7 +10,7 @@ function ProductList(props) {
           id={product.id}
           image={product.image}
           title={product.title}
-          price={product.price.toLocaleString("en-US")}
+          price={product.price}
         />
       ))}
     </ul>

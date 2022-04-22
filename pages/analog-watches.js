@@ -65,7 +65,6 @@ const AnalogWatchesPage = (props) => {
 
   return (
     <Fragment> 
-      <div>Hello</div>
       {/* {loading && <p>Loading...</p>} */}
       {currentPage === 1 && <ProductList products={products} />}
       {/* {nextPrevProducts !== null && <ProductList products={nextPrevProducts} />} */}
